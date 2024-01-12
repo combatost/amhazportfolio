@@ -1,0 +1,27 @@
+<section class="contact" id="contact">
+    <h2 class="heading">Contact <span>Me</span></h2>
+
+    <form [formGroup]="userdata" (ngSubmit)="submitForm()">
+        <div class="input-box">
+            <input type="text" placeholder="Name" formControlName="name" required
+                [ngClass]="{ 'invalid-input': userdata.get('name')?.invalid && userdata.get('name')?.touched }">
+            <input type="text" placeholder="Last Name" formControlName="lastname" required
+                [ngClass]="{ 'invalid-input': userdata.get('lastname')?.invalid && userdata.get('lastname')?.touched }">
+        </div>
+        <div class="input-box">
+            <input type="tel" placeholder="Mobile Number" formControlName="phone" pattern="[0-9]+" required
+                [ngClass]="{ 'invalid-input': userdata.get('phone')?.invalid && userdata.get('phone')?.touched }">
+            <input type="email" placeholder="Email" formControlName="email" required
+                [ngClass]="{ 'invalid-input': userdata.get('email')?.invalid && userdata.get('email')?.touched }">
+
+        </div>
+        <textarea cols="30" rows="10" placeholder="Your Message" formControlName="message" required></textarea>
+        <input type="submit" value="Send Message" class="btn">
+
+    </form>
+
+    <div class="loader" *ngIf="isSubmit">
+        <div class="loader-text">{{submitMessage}}</div>
+        <div class="loader-bar"></div>
+    </div>
+</section>
