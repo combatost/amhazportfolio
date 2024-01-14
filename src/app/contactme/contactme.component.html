@@ -1,27 +1,61 @@
 <section class="contact" id="contact">
+    <!-- Add this code to your HTML template file -->
+
     <h2 class="heading">Contact <span>Me</span></h2>
+    <!-- Add this code to your existing HTML template -->
 
     <form [formGroup]="userdata" (ngSubmit)="submitForm()">
         <div class="input-box">
-            <input type="text" placeholder="Name" formControlName="name" required
+            <input type="text" placeholder="Name" formControlName="name"
                 [ngClass]="{ 'invalid-input': userdata.get('name')?.invalid && userdata.get('name')?.touched }">
-            <input type="text" placeholder="Last Name" formControlName="lastname" required
+            <input type="text" placeholder="Last Name" formControlName="lastname"
                 [ngClass]="{ 'invalid-input': userdata.get('lastname')?.invalid && userdata.get('lastname')?.touched }">
         </div>
-        <div class="input-box">
-            <input type="tel" placeholder="Mobile Number" formControlName="phone" pattern="[0-9]+" required
-                [ngClass]="{ 'invalid-input': userdata.get('phone')?.invalid && userdata.get('phone')?.touched }">
-            <input type="email" placeholder="Email" formControlName="email" required
-                [ngClass]="{ 'invalid-input': userdata.get('email')?.invalid && userdata.get('email')?.touched }">
-
+        <div *ngIf="userdata.get('name')?.hasError('nameLengthExceeded') && userdata.get('name')?.touched"
+            class="error-message">
+            Maximum 15 words allowed for name and last name combined.
         </div>
+        <div *ngIf="userdata.get('lastname')?.hasError('nameLengthExceeded') && userdata.get('lastname')?.touched"
+            class="error-message">
+            Maximum 15 words allowed for name and last name combined.
+        </div>
+
+        <!-- Display error message for invalid name format -->
+        <div *ngIf="userdata.get('name')?.hasError('invalidNameFormat') && userdata.get('name')?.touched"
+            class="error-message">
+            Please enter only alphabetical characters for the name.
+        </div>
+
+        <!-- Display error message for invalid last name format -->
+        <div *ngIf="userdata.get('lastname')?.hasError('invalidNameFormat') && userdata.get('lastname')?.touched"
+            class="error-message">
+            Please enter only alphabetical characters for the last name.
+        </div>
+
+        <div class="input-box">
+            <input type="tel" placeholder="Mobile Number" formControlName="phone"
+                [ngClass]="{ 'invalid-input': userdata.get('phone')?.invalid && userdata.get('phone')?.touched }">
+
+
+            <input type="email" placeholder="Email" formControlName="email"
+                [ngClass]="{ 'invalid-input': userdata.get('email')?.invalid && userdata.get('email')?.touched }">
+        </div>
+        <div *ngIf="userdata.get('email')?.hasError('invalidEmailFormat') && userdata.get('email')?.touched"
+            class="error-message">
+            Please enter a valid email address.
+        </div>
+        <div *ngIf="userdata.get('phone')?.hasError('pattern') && userdata.get('phone')?.touched" class="error-message">
+            Please enter a valid 8-digit phone number.
+        </div>
+
         <textarea cols="30" rows="10" placeholder="Your Message" formControlName="message" required></textarea>
         <input type="submit" value="Send Message" class="btn">
-
     </form>
 
     <div class="loader" *ngIf="isSubmit">
         <div class="loader-text">{{submitMessage}}</div>
         <div class="loader-bar"></div>
     </div>
+
+
 </section>

@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { AbstractControl, FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { AngularFirestore } from '@angular/fire/compat/firestore';
 
 @Component({
@@ -14,12 +14,40 @@ export class ContactmeComponent {
 
   constructor(private formBuilder: FormBuilder, private firestore: AngularFirestore) {
     this.userdata = this.formBuilder.group({
-      name: ['', Validators.required],
-      lastname: ['', Validators.required],
-      phone: ['', [Validators.pattern('^[0-9]+$'), Validators.required]],
-      email: ['', [Validators.required, Validators.email]],
+      name: ['', [Validators.required, this.nameValidator]],
+      lastname: ['', [Validators.required, this.nameValidator]],
+      phone: ['', [Validators.pattern('^[0-9]{8}$'), Validators.required]],
+      email: ['', [Validators.required, Validators.email, this.emailValidator]],
       message: ['', Validators.required]
     });
+  }
+
+  ngOnInit(): void {
+  }
+
+  nameValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const value = control.value;
+
+    // Check if the value contains any numbers, symbols, or emojis
+    const regex = /^[A-Za-z]+$/;
+
+    if (!regex.test(value)) {
+      return { 'invalidNameFormat': true };
+    }
+
+    if (value && value.trim().split(' ').length > 15) {
+      return { 'nameLengthExceeded': true };
+    }
+
+    return null;
+  }
+
+  emailValidator(control: AbstractControl): { [key: string]: boolean } | null {
+    const value = control.value;
+    if (value && !value.includes('@')) {
+      return { 'invalidEmailFormat': true };
+    }
+    return null;
   }
 
   submitForm() {

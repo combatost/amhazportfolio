@@ -21,6 +21,14 @@ html {
   
 }
 
+section {
+    min-height: 100vh;
+    padding: 10rem 7% 2rem;
+}
+
+span {
+    color: var(--main-color);
+}
 
 
 

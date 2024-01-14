@@ -70,10 +70,6 @@
 }
 
 
-section {
-    min-height: 100vh;
-    padding: 10rem 7% 2rem;
-}
 
 .home {
     display: flex;
@@ -229,52 +225,20 @@ section {
     border-left: 384px solid transparent;
 }
 
-/* .home-img img {
+.home-img {
     position: absolute;
     bottom: 0;
     right: 0;
+    left: 70%;
     width: 20%;
+    top: 30%;
     pointer-events: none;
-} */
-
-
-span {
-    color: var(--main-color);
 }
 
-.about {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    gap: 4rem;
-
-}
-
-.about-img img {
-    width: 27vw;
-    border-radius: 50%;
-    border-bottom: 1rem solid var(--main-color);
-    box-shadow: 0 1px 21px var(--shadow-color);
-
-}
 
 .heading {
     font-size: 4.5rem;
     text-align: center;
-}
-
-.about-content h2 {
-    text-align: left;
-    line-height: 1.2;
-}
-
-.about-content h3 {
-    font-size: 2rem;
-}
-
-.about-content p {
-    font-size: 1.6rem;
-    margin: 2rem 0 3rem;
 }
 
 #darkMode-icon {
@@ -517,6 +481,11 @@ span {
 @media (max-width: 1060px) {
 
 
+    .social-button {
+        justify-content: center;
+        align-items: center;
+        left: 0;
+    }
 
     .header {
         padding: 1rem 3%;
@@ -540,6 +509,10 @@ span {
     .navbar a:nth-child(1),
     .navbar a:nth-child(2) {
         color: var(--main-color);
+    }
+
+    .home-img {
+        display: none;
     }
 
     .navbar a.active::before {
@@ -576,6 +549,10 @@ span {
 @media (max-width: 768px) {
     #menu-icon {
         display: block;
+    }
+
+    .home-img {
+        display: none;
     }
 
     #darkMode-icon {
@@ -646,8 +623,10 @@ span {
         font-size: 5rem;
     }
 
-    .home-content .socail-media a {
-        margin: 2.5rem .75rem 3rem;
+    .social-buttons {
+
+        justify-content: center;
+        align-items: center;
     }
 
     .home .pro-container {
@@ -887,3 +866,77 @@ span {
         transform: translateY(0%);
     }
 }
+
+.social-buttons {
+    display: flex;
+
+
+
+}
+
+.social-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin: 0 10px;
+    background-color: #fff;
+    box-shadow: 0px 0px 4px #00000027;
+    transition: 0.3s;
+}
+
+.social-button:hover {
+    background-color: #f2f2f2;
+    box-shadow: 0px 0px 6px 3px #00000027;
+}
+
+.social-buttons svg {
+    transition: 0.3s;
+    height: 20px;
+}
+
+.facebook {
+    background-color: var(--main-color);
+}
+
+.facebook svg {
+    fill: #f2f2f2;
+}
+
+.facebook:hover svg {
+    fill: #129e12;
+}
+
+.github {
+    background-color: var(--main-color);
+}
+
+.github svg {
+    width: 25px;
+    height: 25px;
+    fill: #f2f2f2;
+}
+
+.github:hover svg {
+    fill: #333;
+}
+
+
+
+.instagram {
+    background-color: var(--main-color);
+}
+
+.instagram svg {
+    fill: #f2f2f2;
+}
+
+.instagram:hover svg {
+    fill: #c13584;
+}
+
+/* Update your CSS stylesheet */
+
+/* Update your CSS stylesheet */

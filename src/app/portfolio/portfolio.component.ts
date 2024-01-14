@@ -1,10 +1,12 @@
+import { animate, state, style, transition, trigger } from '@angular/animations';
 import { Component, ElementRef, HostListener, Renderer2 } from '@angular/core';
-import { FormGroup, Validators } from '@angular/forms';
+
 
 @Component({
   selector: 'app-portfolio',
   templateUrl: './portfolio.component.html',
-  styleUrl: './portfolio.component.css'
+  styleUrl: './portfolio.component.css',
+  
 })
 export class PortfolioComponent {
  
@@ -12,6 +14,7 @@ export class PortfolioComponent {
 
   currentSection: string = '';
   isNavbarOpen = false;
+ 
 
 
 
@@ -82,9 +85,21 @@ export class PortfolioComponent {
     }
   }
 
+   downloadfile() {
+    const link = document.createElement('a');
+    link.setAttribute('target', '_blank');
+    link.setAttribute('href', './assets/images/ahs.JPG');
+    link.setAttribute('download', `MYCV`);
+    document.body.appendChild(link);
+    link.click();
+    link.remove();
 
+  }
 
+ 
 }
+
+
 
 
 

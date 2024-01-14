@@ -7,6 +7,7 @@
     margin: 1rem auto;
     text-align: center;
     margin-bottom: 3rem;
+    position: relative;
 }
 
 .contact form .input-box {
@@ -20,16 +21,38 @@
     width: 100%;
     padding: 1.5rem;
     font-size: 1.6rem;
-    color: var(--text-color);
-    background: var(--bg-color);
+    color: #333;
+    /* Update with your text color */
+    background: #fff;
+    /* Update with your background color */
     border-radius: .8rem;
     margin: .7rem 0;
-    box-shadow: 0 .1rem .5rem var(--shadow-color);
+    box-shadow: 0 .1rem .5rem rgba(0, 0, 0, 0.1);
 }
 
 .contact form .input-box input {
     width: 49%;
 }
+
+.contact form textarea {
+    resize: none;
+}
+
+.contact form .btn {
+    margin-top: 2rem;
+    cursor: pointer;
+}
+
+.contact form .invalid-input {
+    border: 1px solid red;
+}
+
+.contact form .error-message {
+    color: red;
+    font-size: 1.4rem;
+    margin-top: 0.5rem;
+}
+
 
 
 .contact form textarea {
@@ -117,7 +140,7 @@ span {
 
 .loader-text {
     font-size: 14px;
-    color:  rgb(0, 0, 0);
+    color: rgb(0, 0, 0);
     margin-bottom: 20px;
     align-self: center;
 }
@@ -126,7 +149,8 @@ span {
     width: 10%;
     height: 2px;
     border-radius: 5px;
-    background-color: rgb(0, 0, 0);;
+    background-color: rgb(0, 0, 0);
+    ;
     animation: loader-bar-animation 2s ease-in-out infinite;
 }
 
@@ -150,5 +174,5 @@ span {
 .invalid-input {
     border: 1px solid red;
     transition: .4s ease;
-  }
-  
+}
+

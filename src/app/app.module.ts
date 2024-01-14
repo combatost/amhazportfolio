@@ -7,7 +7,11 @@ import { FormsModule, ReactiveFormsModule } from '@angular/forms';
 import { ContactmeComponent } from './contactme/contactme.component';
 import { AngularFireModule } from '@angular/fire/compat';
 import { FirePort } from './fire-port/fire-port';
-import { AngularFirestoreModule } from '@angular/fire/compat/firestore'; 
+import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
+import { RouterModule } from '@angular/router';
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { AboutmeComponent } from './aboutme/aboutme.component';
+
 
 
 
@@ -17,7 +21,9 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
   declarations: [
     AppComponent,
     PortfolioComponent,
-    ContactmeComponent
+    ContactmeComponent,
+    AboutmeComponent,
+    
   ],
   imports: [
     BrowserModule,
@@ -25,19 +31,15 @@ import { AngularFirestoreModule } from '@angular/fire/compat/firestore';
     FormsModule,
     ReactiveFormsModule,
     AngularFireModule.initializeApp(FirePort.firebaseConfig),
-    AngularFirestoreModule ,
-
-
-
-
-
-
-
-
-
+    AngularFirestoreModule,
+    RouterModule,
+    BrowserAnimationsModule
+    
   ],
   providers: [
     provideClientHydration()
+
+
   ],
   bootstrap: [AppComponent]
 })
