@@ -88,7 +88,7 @@ export class PortfolioComponent {
    downloadfile() {
     const link = document.createElement('a');
     link.setAttribute('target', '_blank');
-    link.setAttribute('href', './assets/images/ahs.JPG');
+    link.setAttribute('href', './assets/images/mycv1.pdf');
     link.setAttribute('download', `MYCV`);
     document.body.appendChild(link);
     link.click();
