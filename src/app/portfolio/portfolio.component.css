@@ -139,6 +139,7 @@
     height: 100%;
     overflow: hidden;
     pointer-events: none;
+    
 }
 
 
@@ -185,6 +186,7 @@
     transform-origin: 384px;
     background: var(--bg-color);
     padding: 13px 0;
+    
 }
 
 .home .pro-box .pro:nth-child(1) i {

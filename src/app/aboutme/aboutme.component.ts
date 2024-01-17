@@ -12,8 +12,8 @@ import { Component } from '@angular/core';
         style({ opacity: 0 }),
         animate(300) // Adjust the duration (in milliseconds)
       ]),
-      transition('* => void', [
-        animate(300, style({ opacity: 0 })) // Adjust the duration (in milliseconds)
+      transition('out => void', [
+        animate(300, style({ opacity: 1 })) // Adjust the duration (in milliseconds)
       ])
     ])
   ]
